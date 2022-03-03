@@ -7,6 +7,6 @@ todos = Table(
     'todos',meta,
     Column('id', Integer, primary_key=True),
     Column('name', String(255), unique=True),
-    Column('isDone', Boolean, unique=True, default=False),
+    Column('isDone', Boolean, default=False),
     Column('Created_at', DateTime, default=datetime.now),
 )
