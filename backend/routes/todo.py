@@ -5,15 +5,15 @@ from schemas.index import Todo
 
 todo = APIRouter()
 
-@todo.get("/showTodo")
+@todo.get("/getAll")
 async def getTodo():
     return conn.execute(todos.select()).fetchall()
 
-@todo.get("/detailTodo/{id}")
+@todo.get("/getById/{id}")
 async def detailTodo(id:int):
     return conn.execute(todos.select().where(todos.c.id == id)).fetchall()
 
-@todo.post("/createTodo")
+@todo.post("/create")
 async def createTodo(todo: Todo): 
     conn.execute(todos.insert().values(
         name=todo.name,
@@ -23,7 +23,7 @@ async def createTodo(todo: Todo):
     return conn.execute(todos.select()).fetchall()
 
 
-@todo.put("/updateTodo/{id}")
+@todo.put("/update/{id}")
 async def updateTodo(id:int, todo:Todo):
     conn.execute(todos.update().values(
         name=todo.name,
@@ -32,7 +32,7 @@ async def updateTodo(id:int, todo:Todo):
     ).where(todos.c.id == id))
     return conn.execute(todos.select()).fetchall()
 
-@todo.delete("/removeTodo/{id}")
+@todo.delete("/remove/{id}")
 async def deleteTodo(id:int):
     conn.execute(todos.delete().where(todos.c.id==id))
     return conn.execute(todos.select()).fetchall()
