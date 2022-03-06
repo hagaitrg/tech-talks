@@ -2,10 +2,13 @@
 
 ### Simple Todo App for Demo, Stack Used :
 
-1. Python
-2. MySQL 
-3. [FastAPI](https://fastapi.tiangolo.com/)
-4. Swagger UI
+1. Backend
+   - Python
+   - MySQL
+   - [FastAPI](https://fastapi.tiangolo.com/)
+
+2. Frontend (Coming Soon)
+
 
 
 
